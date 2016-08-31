@@ -53,7 +53,7 @@ function ckm_timeline() {
         // get all posts from this category
         $posts_args = array(
             'posts_per_page'    => -1,
-            'category'          => $category->term_id,
+            'cat'               => $category->term_id,
             'order'             => 'ASC',
             'orderby'           => 'meta_value',
             'meta_key'          => 'date',
