@@ -1,7 +1,7 @@
 {
   "name": "commemorating-kings-mountain",
   "version": "1.0.0",
-  "description": "",
+  "description": "WordPress plugin with shortcodes and other features",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,5 +26,10 @@
     "grunt-postcss": "^0.8.0",
     "pixrem": "^3.0.0",
     "postcss": "^5.0.19"
+  },
+  "dependencies": {
+    "autoprefixer-core": "^6.0.1",
+    "install": "^0.8.1",
+    "npm": "^3.10.6"
   }
 }
