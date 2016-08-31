@@ -1,3 +1,8 @@
 .timeline {
     .taxonomy-description { margin-left: auto; }
+
+    .hentry {
+        @media screen and (min-width: 59.6875em) { margin-top: 8.3333%; }
+        @media screen and (min-width: 38.75em) { margin-top: 7.6923%; }
+    }
 }
