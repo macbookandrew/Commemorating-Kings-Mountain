@@ -1,4 +1,5 @@
 $theme-color:    #0091c3;
+$theme-color-faded: #dde9ee;
 $border-width:   4px;
 $border-style:   $border-width solid $theme-color;
 
@@ -8,11 +9,14 @@ $gutter-l:       1rem * 2;
 $gutter-xl:      1.0909rem * 2;
 
 .timeline {
+    padding: 0 $gutter-l;
+
     .taxonomy-description { margin-left: auto; }
 
     .hentry {
         box-shadow: none;
         border-top: none;
+        margin-top: $gutter-xl;
 
         @media screen and (min-width: 59.6875em) { margin-top: 8.3333%; }
         @media screen and (min-width: 38.75em) { margin-top: 7.6923%; }
@@ -20,7 +24,7 @@ $gutter-xl:      1.0909rem * 2;
 
     &-major-event {
         border-left: $border-style;
-        padding-left: $gutter-xl;
+        padding-left: $gutter-l;
 
         @media screen and (min-width: 46.25em) { padding-left: $gutter-m; }
         @media screen and (min-width: 55em) { padding-left: $gutter-l; }
@@ -31,6 +35,8 @@ $gutter-xl:      1.0909rem * 2;
         > .entry-title {
             background-color: $theme-color;
             color: white;
+            padding: $gutter-l;
+            margin-left: -$gutter-l;
 
             @media screen and (min-width: 46.25em) {
                 padding: $gutter-m;
@@ -58,12 +64,22 @@ $gutter-xl:      1.0909rem * 2;
     &-event {
         display: flex;
         margin: 0;
+        margin-left: -$gutter-l;
+        background-color: $theme-color-faded;
+
+        &.has-thumbanil {
+            padding-top: 5%;
+
+            @media screen and (min-width: 38.75em) { padding-top: 4.54545%; }
+            @media screen and (min-width: 59.6875em) { padding-top: 5%; }
+        }
 
         .post-thumbnail {
             border-bottom: none;
             width: 25%;
             max-width: 150px;
             margin-right: 1.0909em;
+            transform: translateX(-50%);
 
             @media screen and (min-width: 46.25em) { margin-right: $gutter-m; }
             @media screen and (min-width: 55em) { margin-right: $gutter-l; }
