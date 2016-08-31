@@ -1,4 +1,6 @@
-$theme-color:    #333333;
+$theme-color:    #0091c3;
+$border-width:   4px;
+$border-style:   $border-width solid $theme-color;
 
 $gutter-s:       0.9231rem  * 2;
 $gutter-m:       0.9655rem  * 2;
@@ -14,6 +16,43 @@ $gutter-xl:      1.0909rem * 2;
 
         @media screen and (min-width: 59.6875em) { margin-top: 8.3333%; }
         @media screen and (min-width: 38.75em) { margin-top: 7.6923%; }
+    }
+
+    &-major-event {
+        border-left: $border-style;
+        padding-left: $gutter-xl;
+
+        @media screen and (min-width: 46.25em) { padding-left: $gutter-m; }
+        @media screen and (min-width: 55em) { padding-left: $gutter-l; }
+        @media screen and (min-width: 59.6875em) { padding-left: $gutter-s; }
+        @media screen and (min-width: 68.75em) { padding-left: $gutter-m; }
+        @media screen and (min-width: 77.5em) { padding-left: $gutter-l; }
+
+        > .entry-title {
+            background-color: $theme-color;
+            color: white;
+
+            @media screen and (min-width: 46.25em) {
+                padding: $gutter-m;
+                margin-left: -$gutter-m;
+            }
+            @media screen and (min-width: 55em) {
+                padding: $gutter-l;
+                margin-left: -$gutter-l;
+            }
+            @media screen and (min-width: 59.6875em) {
+                padding: $gutter-s;
+                margin-left: -$gutter-s;
+            }
+            @media screen and (min-width: 68.75em) {
+                padding: $gutter-m;
+                margin-left: -$gutter-m;
+            }
+            @media screen and (min-width: 77.5em) {
+                padding: $gutter-l;
+                margin-left: -$gutter-l;
+            }
+        }
     }
 
     &-event {
