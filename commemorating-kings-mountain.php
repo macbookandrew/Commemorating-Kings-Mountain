@@ -66,15 +66,6 @@ function twentyfifteen_entry_meta() {
         printf( '<span class="sticky-post">%s</span>', __( 'Featured', 'twentyfifteen' ) );
     }
 
-    $format = get_post_format();
-    if ( current_theme_supports( 'post-formats', $format ) ) {
-        printf( '<span class="entry-format">%1$s<a href="%2$s">%3$s</a></span>',
-            sprintf( '<span class="screen-reader-text">%s </span>', _x( 'Format', 'Used before post format.', 'twentyfifteen' ) ),
-            esc_url( get_post_format_link( $format ) ),
-            get_post_format_string( $format )
-        );
-    }
-
     if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ) {
         $begin_date = date_create( get_field( 'date', get_the_ID() ) );
         $end_date = ( get_field( 'end_date' ) ? date_create( get_field( 'end_date' ) ) : '' );
@@ -82,7 +73,7 @@ function twentyfifteen_entry_meta() {
         if ( '1' == get_field( 'fuzzy' ) ) {
             $date_string = $begin_date->format( 'F Y' );
         } else {
-            if ( get_field( 'end_date' ) ) {
+            if ( $end_date && $begin_date != $end_date ) {
                 $date_string = $begin_date->format( 'F j–' ) . $end_date->format( 'j, Y' );
             } else {
                 $date_string = $begin_date->format( 'F j, Y' );
