@@ -35,7 +35,7 @@
                     $date_string
                 );
 
-                printf( '<span class="posted-on"><span class="screen-reader-text">%1$s </span>%2$s</span>',
+                printf( '<p class="posted-on"><span class="screen-reader-text">%1$s </span>%2$s</p>',
                     'Publication date:',
                     $time_string
                 );
