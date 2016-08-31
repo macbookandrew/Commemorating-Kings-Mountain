@@ -12,3 +12,9 @@
 if (!defined('ABSPATH')) {
     exit;
 }
+// register style
+add_action( 'wp_enqueue_scripts', 'ckm_styles' );
+function ckm_styles() {
+    wp_register_style( 'ckm', plugins_url( 'css/ckm.min.css', __FILE__ ) );
+}
+
