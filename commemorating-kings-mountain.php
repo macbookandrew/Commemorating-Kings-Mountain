@@ -78,65 +78,6 @@ function ckm_timeline() {
     return $shortcode_content;
 }
 
-// override theme meta
-function twentyfifteen_entry_meta() {
-    if ( is_sticky() && is_home() && ! is_paged() ) {
-        printf( '<span class="sticky-post">%s</span>', __( 'Featured', 'twentyfifteen' ) );
-    }
-
-    if ( in_array( get_post_type(), array( 'post', 'attachment' ) ) ) {
-        $begin_date = date_create( get_field( 'date', get_the_ID() ) );
-        $end_date = ( get_field( 'end_date' ) ? date_create( get_field( 'end_date' ) ) : '' );
-
-        if ( '1' == get_field( 'fuzzy' ) ) {
-            $date_string = $begin_date->format( 'F Y' );
-        } else {
-            if ( $end_date && $begin_date != $end_date ) {
-                $date_string = $begin_date->format( 'F j–' ) . $end_date->format( 'j, Y' );
-            } else {
-                $date_string = $begin_date->format( 'F j, Y' );
-            }
-        }
-        $time_string = sprintf( '<time class="entry-date" datetime="%1$s">%2$s</time>',
-            esc_attr( get_field( 'date' ) ),
-            $date_string
-        );
-
-        printf( '<span class="posted-on"><span class="screen-reader-text">%1$s </span><a href="%2$s" rel="bookmark">%3$s</a></span>',
-            'Publication date:',
-            esc_url( get_permalink() ),
-            $time_string
-        );
-    }
-
-    if ( 'post' == get_post_type() ) {
-        $tags_list = get_the_tag_list( '', _x( ', ', 'Used between list items, there is a space after the comma.', 'twentyfifteen' ) );
-        if ( $tags_list ) {
-            printf( '<span class="tags-links"><span class="screen-reader-text">%1$s </span>%2$s</span>',
-                _x( 'Tags', 'Used before tag names.', 'twentyfifteen' ),
-                $tags_list
-            );
-        }
-    }
-
-    if ( is_attachment() && wp_attachment_is_image() ) {
-        // Retrieve attachment metadata.
-        $metadata = wp_get_attachment_metadata();
-
-        printf( '<span class="full-size-link"><span class="screen-reader-text">%1$s </span><a href="%2$s">%3$s &times; %4$s</a></span>',
-            _x( 'Full size', 'Used before full size attachment link.', 'twentyfifteen' ),
-            esc_url( wp_get_attachment_url() ),
-            $metadata['width'],
-            $metadata['height']
-        );
-    }
-
-    if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-        echo '<span class="comments-link">';
-        /* translators: %s: post title */
-        comments_popup_link( sprintf( __( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'twentyfifteen' ), get_the_title() ) );
-        echo '</span>';
-    }
 function ckm_timeline_post_class( $classes ) {
     $classes[] = 'timeline-event';
     return $classes;

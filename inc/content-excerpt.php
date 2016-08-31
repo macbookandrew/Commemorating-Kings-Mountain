@@ -17,17 +17,34 @@
         <header class="entry-header">
             <?php
                 the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
+
+                $begin_date = date_create( get_field( 'date' ) );
+                $end_date = ( get_field( 'end_date' ) ? date_create( get_field( 'end_date' ) ) : '' );
+
+                if ( '1' == get_field( 'fuzzy_date' ) ) {
+                    $date_string = $begin_date->format( 'F Y' );
+                } else {
+                    if ( $end_date && $begin_date != $end_date ) {
+                        $date_string = $begin_date->format( 'F j–' ) . $end_date->format( 'j, Y' );
+                    } else {
+                        $date_string = $begin_date->format( 'F j, Y' );
+                    }
+                }
+                $time_string = sprintf( '<time class="entry-date" datetime="%1$s">%2$s</time>',
+                    esc_attr( get_field( 'date' ) ),
+                    $date_string
+                );
+
+                printf( '<span class="posted-on"><span class="screen-reader-text">%1$s </span>%2$s</span>',
+                    'Publication date:',
+                    $time_string
+                );
             ?>
         </header><!-- .entry-header -->
 
         <div class="entry-content">
             <?php the_excerpt(); ?>
         </div><!-- .entry-content -->
-
-        <footer class="entry-footer">
-            <?php twentyfifteen_entry_meta(); ?>
-            <?php edit_post_link( __( 'Edit', 'twentyfifteen' ), '<span class="edit-link">', '</span>' ); ?>
-        </footer><!-- .entry-footer -->
     </div>
 
 </article><!-- #post-## -->
