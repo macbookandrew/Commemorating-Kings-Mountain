@@ -42,6 +42,7 @@ function ckm_timeline() {
     $shortcode_content = '<section class="timeline">';
     $categories = get_categories();
     wp_enqueue_style( 'ckm' );
+    add_filter( 'post_class', 'ckm_timeline_post_class' );
 
     foreach ( $categories as $category ) {
         $shortcode_content .= '<article class="timeline-major-event category category-' . $category->term_id . ' category-' .$category->slug . '">';
@@ -136,4 +137,7 @@ function twentyfifteen_entry_meta() {
         comments_popup_link( sprintf( __( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'twentyfifteen' ), get_the_title() ) );
         echo '</span>';
     }
+function ckm_timeline_post_class( $classes ) {
+    $classes[] = 'timeline-event';
+    return $classes;
 }
