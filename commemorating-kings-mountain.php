@@ -13,6 +13,23 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// register custom image sizes
+add_image_size( 'timeline-square-small', 200, 200, true );
+add_image_size( 'timeline-square-medium', 400, 400, true );
+add_image_size( 'timeline-square-large', 600, 600, true );
+add_image_size( 'timeline-square-xlarge', 900, 900, true );
+
+// add custom image sizes to backend
+add_filter( 'image_size_names_choose', 'ckm_custom_sizes' );
+function ckm_custom_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+        'timeline-square-small'     => 'Timeline (S)',
+        'timeline-square-medium'    => 'Timeline (M)',
+        'timeline-square-large'     => 'Timeline (L)',
+        'timeline-square-xlarge'    => 'Timeline (XL)',
+    ));
+}
+
 // register style
 add_action( 'wp_enqueue_scripts', 'ckm_styles' );
 function ckm_styles() {

@@ -11,10 +11,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <?php
-        // Post thumbnail.
-        twentyfifteen_post_thumbnail();
-    ?>
+    <a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true"><?php the_post_thumbnail( 'timeline-square-small' ); ?></a>
 
     <header class="entry-header">
         <?php
