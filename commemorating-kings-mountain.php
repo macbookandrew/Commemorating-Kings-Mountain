@@ -39,11 +39,12 @@ function ckm_styles() {
 // timeline shortcode
 add_shortcode( 'ckm_timeline', 'ckm_timeline' );
 function ckm_timeline() {
-    $shortcode_content = '<section class="timeline">';
-    $categories = get_categories();
     wp_enqueue_style( 'ckm' );
     add_filter( 'post_class', 'ckm_timeline_post_class' );
 
+    $shortcode_content = '<section class="timeline">';
+
+    $categories = get_categories();
     foreach ( $categories as $category ) {
         $shortcode_content .= '<article class="timeline-major-event category category-' . $category->term_id . ' category-' .$category->slug . '">';
         $shortcode_content .= '<h2 class="entry-title">' . $category->name . '</h2>';
