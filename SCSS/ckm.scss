@@ -104,7 +104,9 @@ $gutter-xl:      1.0909rem * 2;
 
         .posted-on {
             &:before{
-                top: 0.5em;
+                top: 0.3em;
+
+                @media screen and (min-width: 68.75em) { top: 0.5em; }
             }
 
             @media screen and (min-width: 46.25em) { margin-bottom: $gutter-m; }
