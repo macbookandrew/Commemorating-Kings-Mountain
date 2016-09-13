@@ -70,6 +70,8 @@ $gutter-xl:      1.0909rem * 2;
         margin-left: -$gutter-l;
         background-color: $theme-color-faded;
 
+        @media screen and (max-width: 38.75em) { flex-wrap: wrap; }
+
         &.has-post-thumbnail {
             padding-top: 5%;
 
@@ -80,11 +82,16 @@ $gutter-xl:      1.0909rem * 2;
         .post-thumbnail {
             border-bottom: none;
             width: 25%;
+            min-width: 75px;
             max-width: 150px;
             margin-right: 1.0909em;
             transform: translateX(-50%);
 
-            @media screen and (min-width: 46.25em) { margin-right: $gutter-m; }
+            @media screen and (min-width: 38.75em) {
+                margin-right: $gutter-m;
+                position: absolute;
+                top: 1em;
+            }
             @media screen and (min-width: 55em) { margin-right: $gutter-l; }
             @media screen and (min-width: 59.6875em) { margin-right: $gutter-s; }
             @media screen and (min-width: 68.75em) { margin-right: $gutter-m; }
@@ -98,7 +105,11 @@ $gutter-xl:      1.0909rem * 2;
             }
         }
 
-        .content { width: 75%; }
+        .content {
+            margin-left: 12.5%;
+
+            @media screen and (max-width: 38.74em) { margin-left: 0; }
+        }
 
         .entry-title { margin-top: 0; }
 
