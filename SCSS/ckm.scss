@@ -1,7 +1,8 @@
-$theme-color:    #0091c3;
-$theme-color-faded: #dde9ee;
-$border-width:   4px;
-$border-style:   $border-width solid $theme-color;
+$theme-color:           #0091c3;
+$theme-color-faded:     #dde9ee;
+$border-width:          4px;
+$border-width-narrow:   $border-width * 0.75;
+$border-style:          $border-width solid $theme-color;
 
 $gutter-s:       0.9231rem  * 2;
 $gutter-m:       0.9655rem  * 2;
@@ -25,6 +26,8 @@ $gutter-xl:      1.0909rem * 2;
     &-major-event {
         border-left: $border-style;
         padding-left: $gutter-l;
+
+        @media screen and (max-width: 38.74em) { border-left-width: $border-width-narrow; }
 
         @media screen and (min-width: 46.25em) { padding-left: $gutter-m; }
         @media screen and (min-width: 55em) { padding-left: $gutter-l; }
@@ -88,8 +91,10 @@ $gutter-xl:      1.0909rem * 2;
             @media screen and (min-width: 77.5em) { margin-right: $gutter-l; }
 
             img {
-                border: 4px solid $theme-color;
+                border: $border-style;
                 border-radius: 50%;
+
+                @media screen and (max-width: 38.74em) { border-width: $border-width-narrow; }
             }
         }
 
