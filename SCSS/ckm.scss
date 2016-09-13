@@ -102,6 +102,8 @@ $gutter-xl:      1.0909rem * 2;
             @media screen and (min-width: 68.75em) { margin-right: $gutter-m; }
             @media screen and (min-width: 77.5em) { margin-right: $gutter-l; }
 
+            &:hover { opacity: 1; }
+
             img {
                 border: $border-style;
                 border-radius: 50%;
