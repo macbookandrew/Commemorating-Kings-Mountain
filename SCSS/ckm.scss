@@ -112,8 +112,12 @@ $gutter-xl:      1.0909rem * 2;
 
         .content {
             margin-left: 12.5%;
+            width: 87.5%;
 
-            @media screen and (max-width: 38.74em) { margin-left: 0; }
+            @media screen and (max-width: 38.74em) {
+                margin-left: 0;
+                width: 100%;
+            }
         }
 
         .entry-title { margin-top: 0; }
