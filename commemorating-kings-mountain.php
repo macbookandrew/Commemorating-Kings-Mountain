@@ -79,6 +79,7 @@ function ckm_timeline() {
     return $shortcode_content;
 }
 
+// add timeline class
 function ckm_timeline_post_class( $classes ) {
     $classes[] = 'timeline-event';
     return $classes;
