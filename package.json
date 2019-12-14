@@ -32,6 +32,6 @@
   "dependencies": {
     "autoprefixer-core": "^6.0.1",
     "install": "^0.8.1",
-    "npm": "^3.10.6"
+    "npm": "^6.13.4"
   }
 }
